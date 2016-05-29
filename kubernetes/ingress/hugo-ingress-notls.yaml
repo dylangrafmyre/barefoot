@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: echoserver
+  name: hugo
 spec:
   rules:
-  - host: echo.example.com
+  - host: barefootdevops.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: echoserver
+          serviceName: hugo
           servicePort: 80
