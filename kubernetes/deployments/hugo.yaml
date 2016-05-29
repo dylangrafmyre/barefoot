@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hugo
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hugo
+        track: stable
+    spec:
+      containers:
+        - name: hugo
+          image: "us.gcr.io/neon-glyph-131719/barefootdevops:201605271824"
+          env:
+          - name: HUGO_BASEURL
+            value: http://barefootdevops.com
+          - name: HUGO_THEME
+            value: hugo-icarus-theme
+          - name: HUGO_BIND_IP
+            value: 0.0.0.0
+          - name: HUGO_WATCH
+            value: "false"
+          - name: HUGO_PORT
+            value: "80"
+          ports:
+          - name: http
+            containerPort: 80

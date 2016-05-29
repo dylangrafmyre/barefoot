@@ -1,0 +1,23 @@
+version: '2'
+services:
+  hugo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hugo
+    volumes:
+      - .:/src
+    environment:
+      - HUGO_BASEURL=""
+      - HUGO_THEME=hugo-icarus-theme
+      - HUGO_BIND_IP=0.0.0.0
+      - HUGO_WATCH=false
+      - HUGO_PORT=1313
+  web:
+    image: nginx:alpine
+    links:
+      - hugo
+    volumes:
+      - ./kubernetes/nginx/proxy.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
