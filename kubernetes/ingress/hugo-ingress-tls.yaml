@@ -1,19 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: echoserver
+  name: hugo
   annotations:
     kubernetes.io/tls-acme: "true"
 spec:
   tls:
   - hosts:
-    - echo.example.com
-    secretName: echoserver-tls
+    - barefootdevops.com
+    secretName: hugo-tls
   rules:
-  - host: echo.example.com
+  - host: barefootdevops.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: echoserver
+          serviceName: hugo
           servicePort: 80

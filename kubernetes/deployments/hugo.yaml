@@ -15,7 +15,7 @@ spec:
           image: "us.gcr.io/neon-glyph-131719/barefootdevops:201605271824"
           env:
           - name: HUGO_BASEURL
-            value: http://barefootdevops.com
+            value: https://barefootdevops.com
           - name: HUGO_THEME
             value: hugo-icarus-theme
           - name: HUGO_BIND_IP
